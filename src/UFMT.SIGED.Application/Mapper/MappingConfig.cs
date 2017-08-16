@@ -38,6 +38,8 @@ namespace UFMT.SIGED.Application.Mapper
                 .ReverseMap();
                 #endregion
 
+                cfg.CreateMap<Usuario, LoginUsuarioViewModel>()
+              .ReverseMap();
 
             });
         }

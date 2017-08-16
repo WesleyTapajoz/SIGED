@@ -57,6 +57,7 @@
     <Compile Include="Repository\EstudanteRepository.cs" />
     <Compile Include="Repository\NivelEnsinoRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\UsuarioRepository.cs" />
     <Compile Include="UoW\IUnitOfWork.cs" />
     <Compile Include="UoW\UnitOfWork.cs" />
   </ItemGroup>

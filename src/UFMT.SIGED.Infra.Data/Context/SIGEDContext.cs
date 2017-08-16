@@ -24,6 +24,7 @@ namespace UFMT.SIGED.Infra.Data.Context
         public DbSet<NivelEnsino> NiveisDeEnsino { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Professor> Professores { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnModelCreating
             (DbModelBuilder modelBuilder)

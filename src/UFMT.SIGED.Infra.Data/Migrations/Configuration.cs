@@ -98,6 +98,36 @@ namespace UFMT.SIGED.Infra.Data.Migrations
                 },
             };
             context.Estudantes.AddRange(estudantes);
+
+            var usuarios = new List<Usuario>
+            {
+                new Usuario {
+                    Email = "admin@teste.com.br",
+                    Senha = "Admin@123",
+                    NivelAcesso = NivelAcessoSistema.Administrador,
+                    Bloqueado = false,
+                    UltimoAcesso = DateTime.Now
+                },
+
+                new Usuario {
+                    Email = "gestor@teste.com.br",
+                    Senha = "Gestor@123",
+                    NivelAcesso = NivelAcessoSistema.Gestor,
+                    Bloqueado = false,
+                    UltimoAcesso = DateTime.Now
+                },
+
+                new Usuario {
+                    Email = "usuario@teste.com.br",
+                    Senha = "Usuario@123",
+                    NivelAcesso = NivelAcessoSistema.Usuario,
+                    Bloqueado = false,
+                    UltimoAcesso = DateTime.Now
+                },
+
+            };
+            context.Usuarios.AddRange(usuarios);
+
         }
     }
 }

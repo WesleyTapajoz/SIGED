@@ -53,6 +53,7 @@
     <Compile Include="ViewModels\NivelEnsino\AtualizarNivelEnsinoViewModel.cs" />
     <Compile Include="ViewModels\NivelEnsino\EstudanteNivelEnsinoViewModel.cs" />
     <Compile Include="ViewModels\NivelEnsino\NivelDeEnsinoViewModel.cs" />
+    <Compile Include="ViewModels\Usuario\LoginUsuarioViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UFMT.SIGED.Domain\UFMT.SIGED.Domain.csproj">
