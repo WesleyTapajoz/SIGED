@@ -1,0 +1,72 @@
+﻿@model UFMT.SIGED.Application.ViewModels.AdicionarNivelEnsinoViewModel
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">Novo Nível de Ensino</h4>
+        </div>
+        <div class="modal-body">
+            
+            @using (Ajax.BeginForm("Create", "NivelEnsino",
+                new AjaxOptions
+                {
+                    HttpMethod = "Post",
+                    InsertionMode = InsertionMode.Replace,
+                    LoadingElementId = "loading",
+                    OnBegin = "iniciarProcesso",
+                    OnSuccess = "finalizarProcesso",
+                    UpdateTargetId = "divResultado",
+                }))
+
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4>Nivel de Ensino</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Descricao, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Descricao, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" id="btnSalvar" value="Salvar" class="btn btn-default" />
+                            <span id="loading" style="display: none; float:left"> 
+                                <img src="~/Content/loading.gif" />
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+
+@Scripts.Render("~/bundles/jqueryval")
+
+<script>
+
+    function iniciarProcesso()
+    {
+        $('#btnSalvar').addClass("btn btn-default disabled");
+    }
+
+    function finalizarProcesso()
+    {
+        $('#modal').modal('hide');
+
+    }
+
+</script>
+

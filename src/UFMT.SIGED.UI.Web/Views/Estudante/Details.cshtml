@@ -1,0 +1,74 @@
+﻿@model UFMT.SIGED.Application.ViewModels.EstudanteViewModel
+
+@{
+    ViewBag.Title = "Detalhes do Estudante";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Estudante</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco.CEP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Endereco.CEP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NivelEnsino.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NivelEnsino.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Altura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Altura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Peso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Peso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataNascimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataNascimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Foto)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.EstudanteId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

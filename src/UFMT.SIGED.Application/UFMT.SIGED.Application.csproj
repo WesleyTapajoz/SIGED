@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2529F47F-DE5E-40B2-BAB0-A4D63555DA05}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UFMT.SIGED.Application</RootNamespace>
+    <AssemblyName>UFMT.SIGED.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Mapper\MappingConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Estudante\AtualizarEstudanteViewModel.cs" />
+    <Compile Include="ViewModels\Estudante\AdicionarEstudanteViewModel.cs" />
+    <Compile Include="ViewModels\Estudante\EstudanteViewModel.cs" />
+    <Compile Include="ViewModels\NivelEnsino\AdicionarNivelEnsinoViewModel.cs" />
+    <Compile Include="ViewModels\NivelEnsino\AtualizarNivelEnsinoViewModel.cs" />
+    <Compile Include="ViewModels\NivelEnsino\EstudanteNivelEnsinoViewModel.cs" />
+    <Compile Include="ViewModels\NivelEnsino\NivelDeEnsinoViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UFMT.SIGED.Domain\UFMT.SIGED.Domain.csproj">
+      <Project>{edb78196-4013-4a19-8e13-855f6a31ebca}</Project>
+      <Name>UFMT.SIGED.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UFMT.SIGED.Infra.CrossCuting\UFMT.SIGED.Infra.CrossCuting.csproj">
+      <Project>{0d7362e9-a456-413a-adf6-a9f659e3531f}</Project>
+      <Name>UFMT.SIGED.Infra.CrossCuting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UFMT.SIGED.Infra.Data\UFMT.SIGED.Infra.Data.csproj">
+      <Project>{ebe6b362-cb6f-4341-a529-7b6a07b37ec5}</Project>
+      <Name>UFMT.SIGED.Infra.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

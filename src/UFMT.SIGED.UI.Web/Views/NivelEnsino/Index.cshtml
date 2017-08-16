@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "Níveis de Ensino";
+}
+
+<div class="modal fade in" id="modal">
+    <div id="conteudoModal">
+
+    </div>
+</div>
+
+
+<h2>@ViewBag.Title</h2>
+<p>
+    <button class="btn btn-default" id="btnAdicionar"
+            onclick="showModal('@Url.Action("Create", "NivelEnsino")')">
+        <i class="glyphicon glyphicon-new-window"></i> Novo Registro
+    </button>
+</p>
+
+<div id="divFiltro" class="panel panel-default">
+    
+    <div class="panel-heading">
+        <h2 class="panel-title">Filtrar</h2>
+    </div>
+
+
+    @using (Ajax.BeginForm("Buscar", "NivelEnsino",
+                    new AjaxOptions
+                    {
+                        UpdateTargetId = "divResultado",
+                        HttpMethod = "Get",
+                        InsertionMode = InsertionMode.Replace,
+                        LoadingElementId = "divLoading"
+                    }))
+
+    {
+
+        <div class="panel-body">
+            <div class="form-horizontal">
+
+                <div class="form-group">
+                    <label for="criterio" class="control-label col-md-2">Critério(s)</label>
+                    <div class="col-md-10">
+                        <input type="text"
+                               name="criterio"
+                               id="criterio"
+                               placeholder="Entre com o critério" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4">
+
+                        <span id="divLoading" style="display: none">
+                            <img src="~/Content/loading.gif" />
+                        </span>
+
+                        <input type="submit"
+                               value="Buscar"
+                               class="btn btn-default" />
+     
+                        <button type="submit" id="btnMostrarTodos"
+                                class="btn btn-primary">
+                            Mostrar todos
+                        </button>
+                    </div>
+               </div>
+
+         </div>
+           </div>
+      }
+</div>
+
+
+    <div id="divResultado">
+        @Html.Partial("_ObterTodos")
+    </div>
+
+
+    @Ajax.ActionLink("Exibir > Nível de Ensino"
+    , "ObterMaiorNivelEnsino", null,
+    new AjaxOptions
+    {
+        UpdateTargetId = "divMaiorNivelEnsino",
+        HttpMethod = "Get",
+        LoadingElementId = "divLoading",
+        InsertionMode = InsertionMode.Replace
+
+    }, new { @class = "btn btn-primary" })
+
+                <div id="divMaiorNivelEnsino">
+
+                </div>
+
+                @section scripts{
+                    <script>
+
+                        $("#btnMostrarTodos").click(function () {
+                            $("#criterio").val('');
+                        });
+
+                        function showModal(url) {
+                            $('#conteudoModal').load(url, function () {
+                                $('#modal').modal({
+                                    keyboard: true
+                                }, 'show');
+                            });
+                        };
+                    </script>
+                }

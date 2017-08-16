@@ -1,0 +1,75 @@
+﻿@model PagedList.IPagedList<UFMT.SIGED.Application.ViewModels.EstudanteViewModel>
+
+@using PagedList.Mvc
+@using PagedList
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            CEP
+        </th>
+        <th>
+            Descrição
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Altura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Peso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().DataNascimento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Foto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Endereco.CEP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NivelEnsino.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Altura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Peso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataNascimento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Foto)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EstudanteId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EstudanteId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EstudanteId })
+        </td>
+    </tr>
+}
+
+</table>
+Página @Model.PageNumber de @Model.PageCount
+@Html.PagedListPager(Model, Page => Url.Action("Index", new { pagina = Page }))

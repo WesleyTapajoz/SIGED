@@ -1,0 +1,70 @@
+﻿@model UFMT.SIGED.Application.ViewModels.NivelDeEnsinoViewModel
+
+
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title">Remover Nível de Ensino</h4>
+        </div>
+        <div class="modal-body">
+
+            <h3>Tem certeza que deseja remover?</h3>
+            <div>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Descricao)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Descricao)
+                    </dd>
+
+                </dl>
+
+            </div>
+
+        </div>
+        <div class="modal-footer">
+
+            @using (Ajax.BeginForm("Delete", "NivelEnsino",
+                            new AjaxOptions
+                            {
+                                UpdateTargetId = "divResultado",
+                                HttpMethod = "Post",
+                                InsertionMode = InsertionMode.Replace,
+                                LoadingElementId = "loading",
+                                OnBegin = "iniciarProcesso",
+                                OnSuccess = "finalizarProcesso"
+                            }))
+
+            {
+
+             @Html.AntiForgeryToken()
+             @Html.HiddenFor(model=> model.NivelEnsinoId)
+
+            <input type="submit" value="Confirmar" class="btn btn-default" id="btnExcluir" />
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+            
+            <span id="loading" style="display: none; float:left">
+                <img src="~/Content/loading.gif" />
+            </span>
+
+            }
+        </div>
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+
+<script>
+
+    function iniciarProcesso()
+    {
+        $('#btnExcluir').addClass("btn btn-default disabled");
+    }
+
+    function finalizarProcesso()
+    {
+        $('#modal').modal('hide');
+    }
+
+</script>

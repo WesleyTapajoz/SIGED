@@ -1,0 +1,63 @@
+﻿@model IPagedList<UFMT.SIGED.Application.ViewModels.NivelDeEnsinoViewModel>
+
+@using PagedList.Mvc
+@using PagedList
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <p>Exibindo registros</p>
+    </div>
+        <div class="panel-body">
+            <table class="table table-hover">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FirstOrDefault().Descricao)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Descricao)
+                        </td>
+                        <td>
+
+                            <button class="btn btn-default"
+                                    onclick="showModal('@Url.Action("Details", "NivelEnsino", new {id = item.NivelEnsinoId})')">
+                                <span title="Editar" class="glyphicon glyphicon-file"></span>
+                            </button>
+
+                            <button class="btn btn-primary"
+                                    onclick="showModal('@Url.Action("Edit", "NivelEnsino", new {id = item.NivelEnsinoId})')">
+                                <span title="Editar" class="glyphicon glyphicon-pencil"></span>
+                            </button>
+
+                            <button class="btn btn-danger"
+                                    onclick="showModal('@Url.Action("Delete", "NivelEnsino", new {id = item.NivelEnsinoId})')">
+                                <span title="Excluir" class="glyphicon glyphicon-trash"></span>
+                            </button>
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+
+    <div class="panel-footer text-center">
+            Página @Model.PageNumber de @Model.PageCount
+            @Html.PagedListPager(Model, Page => Url.Action("Buscar", new { pagina = Page }),
+        PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions()
+        {
+            HttpMethod = "Get",
+            UpdateTargetId = "divResultado",
+
+        }))
+    </div>
+
+</div>
+
+
+        
+

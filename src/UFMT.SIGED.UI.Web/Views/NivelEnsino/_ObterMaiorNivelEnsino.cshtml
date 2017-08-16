@@ -1,0 +1,25 @@
+﻿@model UFMT.SIGED.Application.ViewModels.NivelDeEnsinoViewModel
+
+<div class="well">
+    <h4 class="modal-title">Exibindo o maior nível de ensino</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NivelEnsinoId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NivelEnsinoId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+    </dl>
+</div>
+
