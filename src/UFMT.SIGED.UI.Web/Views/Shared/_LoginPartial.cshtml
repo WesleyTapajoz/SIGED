@@ -1,22 +1,28 @@
-﻿@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
+﻿@using UFMT.SIGED.Application.ViewModels
+
+@if (Session["usuario"] != null)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
-    @Html.AntiForgeryToken()
+    var usuario = (LoginUsuarioViewModel)Session["usuario"];
 
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            @Html.ActionLink("Olá " + usuario.Email + "!", "Index", "Home"
+                , new { area = "administracao" }, null)
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
-    }
+        <li>
+            @Html.ActionLink("Sair", "LogOff", "Autenticacao"
+                , new { area = "" }
+                , new { id = "btnLogOff" })
+    </li>
+</ul>
 }
 else
 {
     <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
+        <li>
+            @Html.ActionLink("Entrar", "Index", "Autenticacao"
+           , new { area = "" }
+           , new { id = "btnLogIn" })
+    </li>
+</ul>
 }

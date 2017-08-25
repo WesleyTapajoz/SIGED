@@ -6,6 +6,7 @@ namespace UFMT.SIGED.Infra.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
     using UFMT.SIGED.Domain.Entity;
+    using UFMT.SIGED.Infra.CrossCuting;
     using UFMT.SIGED.Infra.Data.Context;
 
     internal sealed class Configuration : DbMigrationsConfiguration<UFMT.SIGED.Infra.Data.Context.SIGEDContext>
@@ -103,7 +104,7 @@ namespace UFMT.SIGED.Infra.Data.Migrations
             {
                 new Usuario {
                     Email = "admin@teste.com.br",
-                    Senha = "Admin@123",
+                    Senha = CriptografiaSHA256.GeraHashSHA256("Admin@123"),
                     NivelAcesso = NivelAcessoSistema.Administrador,
                     Bloqueado = false,
                     UltimoAcesso = DateTime.Now
@@ -111,7 +112,7 @@ namespace UFMT.SIGED.Infra.Data.Migrations
 
                 new Usuario {
                     Email = "gestor@teste.com.br",
-                    Senha = "Gestor@123",
+                    Senha = CriptografiaSHA256.GeraHashSHA256("Gestor@123"),
                     NivelAcesso = NivelAcessoSistema.Gestor,
                     Bloqueado = false,
                     UltimoAcesso = DateTime.Now
@@ -119,7 +120,7 @@ namespace UFMT.SIGED.Infra.Data.Migrations
 
                 new Usuario {
                     Email = "usuario@teste.com.br",
-                    Senha = "Usuario@123",
+                    Senha = CriptografiaSHA256.GeraHashSHA256("Usuario@123"),
                     NivelAcesso = NivelAcessoSistema.Usuario,
                     Bloqueado = false,
                     UltimoAcesso = DateTime.Now

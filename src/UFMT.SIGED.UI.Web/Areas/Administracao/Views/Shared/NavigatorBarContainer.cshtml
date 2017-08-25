@@ -1,4 +1,11 @@
-﻿<script type="text/javascript">
+﻿@using UFMT.SIGED.Application.ViewModels
+@using UFMT.SIGED.Domain.Entity
+@{
+    ViewBag.Title = "Index";
+    var usuario = (LoginUsuarioViewModel)Session["usuario"];
+}
+
+<script type="text/javascript">
     try { ace.settings.check('navbar', 'fixed') } catch (e) { }
 </script>
 
@@ -14,10 +21,10 @@
     </button>
 
     <div class="navbar-header pull-left">
-        <a href="@Url.Action("Index", "Dashboard")" class="navbar-brand">
+        <a href="@Url.Action("Index", "Home")" class="navbar-brand">
             <small>
                 <i class="fa fa-leaf"></i>
-                Ace Admin
+                SIGED V1.0
             </small>
         </a>
     </div>
@@ -280,15 +287,21 @@
             </li>
 
             <li class="light-blue">
-                <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                    <img class="nav-user-photo" src="~/Areas/Administracao/assets/avatars/user.jpg" alt="Jason's Photo" />
-                    <span class="user-info">
-                        <small>Welcome,</small>
-                        @User.Identity.Name!
-                    </span>
 
-                    <i class="ace-icon fa fa-caret-down"></i>
-                </a>
+                @Html.ActionLink("Sair", "LogOff", "Autenticacao"
+                , new { area = "" }
+                , new { id = "btnLogOff" })
+
+
+
+                <img class="nav-user-photo" src="~/Areas/Administracao/assets/avatars/user.jpg" alt="Jason's Photo" />
+                <span class="user-info">
+                    <small>Olá,</small>
+                    @usuario.Email
+                </span>
+
+                <i class="ace-icon fa fa-caret-down"></i>
+
 
                 <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                     <li>
@@ -308,7 +321,7 @@
                     <li class="divider"></li>
 
                     <li>
-                        <a href="#">
+                        <a href="@Url.Action("Index", "Autenticacao", new { area="" })">
                             <i class="ace-icon fa fa-power-off"></i>
                             Logout
                         </a>

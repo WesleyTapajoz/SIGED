@@ -7,13 +7,13 @@ using System.Web.Routing;
 
 namespace UFMT.SIGED.UI.Web.Filtros
 {
-    public class AutorizacaoAdministradorFilterAttribute :
+    public class AutorizacaoUsuarioFilterAttribute :
             ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             object usuarioLogado = filterContext
-                .HttpContext.Session["administrador"];
+                .HttpContext.Session["usuario"];
             if (usuarioLogado == null)
             {
                 filterContext.Result = new RedirectToRouteResult(

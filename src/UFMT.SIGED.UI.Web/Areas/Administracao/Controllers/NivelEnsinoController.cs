@@ -16,9 +16,11 @@ using AutoMapper.QueryableExtensions;
 using System.Threading;
 using PagedList;
 using PagedList.Mvc;
+using UFMT.SIGED.UI.Web.Filtros;
 
-namespace UFMT.SIGED.UI.Web.Controllers
+namespace Areas.Administracao.Controllers
 {
+    [AutorizacaoUsuarioFilter]
     public class NivelEnsinoController : Controller
     {
         private SIGEDContext context = new SIGEDContext();
@@ -94,6 +96,12 @@ namespace UFMT.SIGED.UI.Web.Controllers
 
         public ActionResult Index(int? pagina)
         {
+            #region erro de lógica
+
+            string[] nomes = new string[] { "Marcio", "Guilherme" };
+            string nome = nomes[2];
+
+            #endregion
 
             int pageNumber = pagina ?? 1;
 

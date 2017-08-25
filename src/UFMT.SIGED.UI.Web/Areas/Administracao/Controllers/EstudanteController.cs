@@ -15,9 +15,11 @@ using AutoMapper.QueryableExtensions;
 using UFMT.SIGED.Application.ViewModels;
 using PagedList;
 using PagedList.Mvc;
+using UFMT.SIGED.UI.Web.Filtros;
 
-namespace UFMT.SIGED.UI.Web.Controllers
+namespace Areas.Administracao.Controllers
 {
+    [AutorizacaoUsuarioFilter]
     public class EstudanteController : Controller
     {
         private SIGEDContext context = new SIGEDContext();

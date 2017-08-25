@@ -220,5 +220,11 @@
 
     <!-- inline scripts related to this page -->
     @RenderSection("PageInlineScripts", required: false)
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false)
+
   </body>
 </html>

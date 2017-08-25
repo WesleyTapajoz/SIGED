@@ -213,11 +213,11 @@
     <Compile Include="Areas\Administracao\Extensions\HtmlRequestHelper.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AutenticacaoController.cs" />
-    <Compile Include="Controllers\EstudanteController.cs" />
+    <Compile Include="Areas\Administracao\Controllers\EstudanteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\NivelEnsinoController.cs" />
-    <Compile Include="Filtros\AutorizacaoAdministradorFilterAttribute.cs" />
+    <Compile Include="Areas\Administracao\Controllers\NivelEnsinoController.cs" />
+    <Compile Include="Filtros\AutorizacaoUsuarioFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -444,6 +444,9 @@
     <Content Include="Areas\Administracao\Views\UIElements\Typography.cshtml" />
     <Content Include="Areas\Administracao\Views\Widgets\Index.cshtml" />
     <Content Include="Areas\Administracao\Views\_ViewStart.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\sigedteste - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\sigedteste - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -491,19 +494,19 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\NivelEnsino\_Create.cshtml" />
-    <Content Include="Views\NivelEnsino\_Delete.cshtml" />
-    <Content Include="Views\NivelEnsino\_Details.cshtml" />
-    <Content Include="Views\NivelEnsino\_Edit.cshtml" />
-    <Content Include="Views\NivelEnsino\Index.cshtml" />
-    <Content Include="Views\NivelEnsino\DetalheNivelEnsinoEstudante.cshtml" />
-    <Content Include="Views\Estudante\Create.cshtml" />
-    <Content Include="Views\Estudante\Delete.cshtml" />
-    <Content Include="Views\Estudante\Details.cshtml" />
-    <Content Include="Views\Estudante\Edit.cshtml" />
-    <Content Include="Views\Estudante\Index.cshtml" />
-    <Content Include="Views\NivelEnsino\_ObterTodos.cshtml" />
-    <Content Include="Views\NivelEnsino\_ObterMaiorNivelEnsino.cshtml" />
+    <Content Include="Areas\Administracao\Views\NivelEnsino\_Create.cshtml" />
+    <Content Include="Areas\Administracao\Views\NivelEnsino\_Delete.cshtml" />
+    <Content Include="Areas\Administracao\Views\NivelEnsino\_Details.cshtml" />
+    <Content Include="Areas\Administracao\Views\NivelEnsino\_Edit.cshtml" />
+    <Content Include="Areas\Administracao\Views\NivelEnsino\Index.cshtml" />
+    <Content Include="Areas\Administracao\Views\NivelEnsino\DetalheNivelEnsinoEstudante.cshtml" />
+    <Content Include="Areas\Administracao\Views\Estudante\Create.cshtml" />
+    <Content Include="Areas\Administracao\Views\Estudante\Delete.cshtml" />
+    <Content Include="Areas\Administracao\Views\Estudante\Details.cshtml" />
+    <Content Include="Areas\Administracao\Views\Estudante\Edit.cshtml" />
+    <Content Include="Areas\Administracao\Views\Estudante\Index.cshtml" />
+    <Content Include="Areas\Administracao\Views\NivelEnsino\_ObterTodos.cshtml" />
+    <Content Include="Areas\Administracao\Views\NivelEnsino\_ObterMaiorNivelEnsino.cshtml" />
     <Content Include="Views\Autenticacao\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

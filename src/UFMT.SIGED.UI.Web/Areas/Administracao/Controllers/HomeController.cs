@@ -7,7 +7,7 @@ using UFMT.SIGED.UI.Web.Filtros;
 
 namespace Areas.Administracao.Controllers
 {
-    [AutorizacaoAdministradorFilter]  
+    [AutorizacaoUsuarioFilter]  
     public class HomeController : Controller
     {
         // GET: Administracao/Home

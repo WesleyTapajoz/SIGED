@@ -1,4 +1,9 @@
-﻿
-<h2>Área Administrativa</h2>
-<h3>Seja bem-vindo administrador!</h3>
+﻿@using UFMT.SIGED.Application.ViewModels
+@{
+    ViewBag.Title = "Index";
+    var usuario = (LoginUsuarioViewModel)Session["usuario"];
+}
+
+<h2>Olá @usuario.Email</h2>
+<h4>Seu perfil de acesso: @usuario.NivelAcesso</h4>
 

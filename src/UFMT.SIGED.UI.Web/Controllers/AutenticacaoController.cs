@@ -45,7 +45,7 @@ namespace UFMT.SIGED.UI.Web.Controllers
                 if (usuario != null)
                 {
                     usuarioViewModel = Mapper.Map<Usuario, LoginUsuarioViewModel>(usuario);
-                    Session["administrador"] = usuarioViewModel;
+                    Session["usuario"] = usuarioViewModel;
                     return RedirectToAction("Index", "Home", new { area = "administracao" });
                 }
                 else
@@ -64,7 +64,7 @@ namespace UFMT.SIGED.UI.Web.Controllers
 
         public ActionResult LogOff()
         {
-            Session.Remove("administrador");
+            Session.Remove("usuario");
             Session.Abandon();
 
             return RedirectToAction("Index", "Home");

@@ -1,12 +1,100 @@
-﻿<ul class="nav nav-list">
-    <li class="">
-        <a href="@Url.Action("Index", "Dashboard")">
-            <i class="menu-icon fa fa-tachometer"></i>
-            <span class="menu-text"> Dashboard </span>
-        </a>
+﻿@using UFMT.SIGED.Application.ViewModels
+@using UFMT.SIGED.Domain.Entity
+@{
+    ViewBag.Title = "Index";
+    var usuario = (LoginUsuarioViewModel)Session["usuario"];
+}
 
+
+<ul class="nav nav-list">
+
+    <li class="">
+        <a href="@Url.Action("Index", "Home")">
+            <i class="menu-icon fa fa-external-link"></i>
+            <span class="menu-text"> Home </span>
+        </a>
         <b class="arrow"></b>
     </li>
+
+    @if (usuario.NivelAcesso == NivelAcessoSistema.Usuario)
+    {
+
+        <li class="">
+            <a href="@Url.Action("Index", "Estudante")">
+                <i class="menu-icon fa fa-users"></i>
+                <span class="menu-text"> Estudantes </span>
+            </a>
+            <b class="arrow"></b>
+        </li>
+
+    }
+
+    @if (usuario.NivelAcesso == NivelAcessoSistema.Gestor)
+    {
+
+        <li class="">
+            <a href="@Url.Action("Index", "Estudante")">
+                <i class="menu-icon fa fa-users"></i>
+                <span class="menu-text"> Estudantes </span>
+            </a>
+            <b class="arrow"></b>
+        </li>
+
+        <li class="">
+            <a href="@Url.Action("Index", "NivelEnsino")">
+                <i class="menu-icon fa fa-globe"></i>
+                <span class="menu-text"> Nível de Ensino </span>
+            </a>
+            <b class="arrow"></b>
+        </li>
+
+
+    }
+    @if (usuario.NivelAcesso == NivelAcessoSistema.Administrador)
+    {
+        <li class="">
+            <a href="@Url.Action("Index", "Estudante")">
+                <i class="menu-icon fa fa-users"></i>
+                <span class="menu-text"> Estudantes </span>
+            </a>
+            <b class="arrow"></b>
+        </li>
+
+        <li class="">
+            <a href="@Url.Action("Index", "NivelEnsino")">
+                <i class="menu-icon fa fa-globe"></i>
+                <span class="menu-text"> Nível de Ensino </span>
+            </a>
+            <b class="arrow"></b>
+        </li>
+
+        <li class="">
+            <a href="@Url.Action("Index", "Usuario")">
+                <i class="menu-icon fa fa-user"></i>
+                <span class="menu-text"> Usuários </span>
+            </a>
+            <b class="arrow"></b>
+        </li>
+
+        <li class="">
+            <a href="@Url.Action("Index", "Relatorio")">
+                <i class="menu-icon fa fa-bar-chart"></i>
+                <span class="menu-text"> Relatórios </span>
+            </a>
+            <b class="arrow"></b>
+        </li>
+
+        <li class="">
+            <a href="@Url.Action("Index", "Configuracoes")">
+                <i class="menu-icon fa fa-cog"></i>
+                <span class="menu-text"> Usuários </span>
+            </a>
+            <b class="arrow"></b>
+        </li>
+
+    }
+
+
 
     <li class="">
         <a href="#" class="dropdown-toggle">
@@ -467,4 +555,6 @@
             </li>
         </ul>
     </li>
+
+
 </ul><!-- /.nav-list -->
